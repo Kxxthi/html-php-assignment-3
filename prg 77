@@ -1,0 +1,27 @@
+<?php
+// Get IP address of a host
+echo "IP of example.com: " . gethostbyname("example.com") . "<br>";
+
+// Get host name from an IP
+echo "Host for 8.8.8.8: " . gethostbyaddr("8.8.8.8") . "<br>";
+
+// Get list of IP addresses for a hostname
+$ips = gethostbynamel("example.com");
+if($ips){
+    echo "All IPs for example.com: " . implode(", ", $ips) . "<br>";
+}
+
+// Get service by name and port
+echo "Port for HTTP: " . getservbyname("http", "tcp") . "<br>";
+echo "Service on port 443: " . getservbyport(443, "tcp") . "<br>";
+
+// Get protocol by name/number
+echo "Protocol number for TCP: " . getprotobyname("tcp") . "<br>";
+echo "Protocol name for 6: " . getprotobynumber(6) . "<br>";
+
+// Convert IP to long and back
+$ip = "192.168.1.1";
+$long = ip2long($ip);
+echo "Long representation of $ip: $long<br>";
+echo "IP back from long: " . long2ip($long) . "<br>";
+?>
