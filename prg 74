@@ -1,0 +1,8 @@
+<?php
+// Write
+file_put_contents("sample.txt", "This is a test.\nSecond line.");
+
+// Read
+$content = file_get_contents("sample.txt");
+echo nl2br($content);
+?>
