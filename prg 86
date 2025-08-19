@@ -1,0 +1,7 @@
+<?php
+// Writing to a file
+file_put_contents("sample.txt", "PHP File functions example.\n");
+
+// Reading file content
+echo file_get_contents("sample.txt");
+?>
