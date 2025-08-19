@@ -1,0 +1,9 @@
+<?php
+function appendLine($filename, $newLine){
+    file_put_contents($filename, $newLine . PHP_EOL, FILE_APPEND);
+    echo "Line appended successfully.";
+}
+
+// Usage
+appendLine("notes.txt", "This is a new appended line.");
+?>
