@@ -1,0 +1,13 @@
+<?php
+function weekStartEnd($week, $year){
+    $dt = new DateTime();
+    $dt->setISODate($year, $week);           // Monday of ISO week
+    $start = clone $dt;
+    $end = (clone $dt)->modify('+6 days');    // Sunday
+    return [$start->format('Y-m-d'), $end->format('Y-m-d')];
+}
+
+// Example:
+list($start, $end) = weekStartEnd(12, 2014);
+echo "Week 12 of 2014: $start to $end";  // 2014-03-17 to 2014-03-23
+?>
