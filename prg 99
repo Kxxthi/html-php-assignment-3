@@ -1,0 +1,36 @@
+<?php
+session_start();
+
+// (b)(c)(d): visit counter
+if(!isset($_SESSION['visits'])) { $_SESSION['visits'] = 1; $new = true; }
+else { $_SESSION['visits']++; $new = false; }
+
+echo $new ? "New session.<br>" : "Existing session.<br>";
+echo "Visits: ".$_SESSION['visits']."<br>";
+
+// (e): self link with SID if cookies disabled
+$link = htmlspecialchars($_SERVER['PHP_SELF']).'?'.SID;
+echo '<a href="'.$link.'">Reload with SID</a><br><br>';
+
+// (f): upload restriction (same filename denied)
+if($_SERVER['REQUEST_METHOD']==='POST' && isset($_FILES['up'])){
+    $targetDir = __DIR__ . "/uploads/";
+    if(!is_dir($targetDir)) mkdir($targetDir);
+    $base = basename($_FILES['up']['name']);
+    $target = $targetDir . $base;
+
+    if(file_exists($target)){
+        echo "Error: A file named '$base' already exists.";
+    } else {
+        if(move_uploaded_file($_FILES['up']['tmp_name'], $target)){
+            echo "Uploaded '$base' successfully.";
+        } else {
+            echo "Upload failed.";
+        }
+    }
+}
+?>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="up" required>
+  <button type="submit">Upload</button>
+</form>
