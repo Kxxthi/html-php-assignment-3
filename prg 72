@@ -1,0 +1,15 @@
+<?php
+session_start();
+
+// Register session variable (modern way)
+$_SESSION['username'] = "AdminUser";
+echo "Session registered: " . $_SESSION['username'] . "<br>";
+
+// Unset all session variables
+session_unset();
+echo "All session variables are now unset.<br>";
+
+// Destroy the session
+session_destroy();
+echo "Session destroyed.";
+?>
