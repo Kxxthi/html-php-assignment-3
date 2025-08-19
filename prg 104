@@ -1,0 +1,17 @@
+<?php
+function printNthLine($filename, $n){
+    if($n < 1 || !is_readable($filename)){ echo "no data"; return; }
+    $fh = fopen($filename, "r"); $lineNo = 0; $line = null;
+    while(!feof($fh)){
+        $buf = fgets($fh);
+        if($buf === false) break;
+        $lineNo++;
+        if($lineNo === $n){ $line = rtrim($buf, "\r\n"); break; }
+    }
+    fclose($fh);
+    echo $line !== null ? htmlspecialchars($line) : "no data";
+}
+
+// Usage
+printNthLine("sample.txt", 5);
+?>
