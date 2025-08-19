@@ -1,0 +1,5 @@
+<?php
+$file = fopen("example.txt", "w");
+fwrite($file, "Hello, PHP file modes!");
+fclose($file);
+?>
