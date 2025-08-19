@@ -1,0 +1,17 @@
+<?php
+session_start();
+
+// Set a session variable
+$_SESSION['username'] = "AdminUser";
+$_SESSION['time'] = date('Y-m-d H:i:s');
+
+// Display session info
+echo "Session ID: " . session_id() . "<br>";
+echo "Session Name: " . session_name() . "<br>";
+echo "Session Save Path: " . session_save_path() . "<br>";
+echo "Username in session: " . $_SESSION['username'] . "<br>";
+echo "Time stored in session: " . $_SESSION['time'] . "<br>";
+
+// PHP stores sessions (by default) as files on the server in the directory returned by session_save_path().
+// The session ID is saved in the client browser as a cookie (PHPSESSID by default).
+?>
