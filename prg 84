@@ -1,0 +1,16 @@
+<?php
+session_start();
+
+// Create and set session values
+$_SESSION['user'] = "John";
+$_SESSION['role'] = "Admin";
+
+echo "Session variables set.<br>";
+
+// Remove one session variable
+unset($_SESSION['role']);
+echo "Role removed from session.<br>";
+
+// Destroy session completely
+// session_destroy(); // uncomment if you want to destroy the whole session
+?>
