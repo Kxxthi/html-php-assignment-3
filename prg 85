@@ -1,0 +1,5 @@
+<?php
+$path = "/var/www/html/index.php";
+echo basename($path); // index.php
+echo pathinfo($path, PATHINFO_FILENAME); // index
+?>
