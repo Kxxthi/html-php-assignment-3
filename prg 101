@@ -1,0 +1,7 @@
+<?php
+// Setting (prior response)
+setcookie("theme", "dark", time()+3600, "/");
+
+// Reading (later request)
+echo isset($_COOKIE['theme']) ? $_COOKIE['theme'] : "no cookie";
+?>
