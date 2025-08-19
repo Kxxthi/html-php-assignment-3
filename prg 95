@@ -1,0 +1,11 @@
+<?php
+session_start();
+// Add item
+function addToCart($id, $qty=1){
+    if(!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
+    $_SESSION['cart'][$id] = ($_SESSION['cart'][$id] ?? 0) + $qty;
+}
+// Get cart
+function getCart(){ return $_SESSION['cart'] ?? []; }
+// Remove/clear similarly...
+?>
