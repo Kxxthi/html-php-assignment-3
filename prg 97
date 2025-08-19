@@ -1,0 +1,7 @@
+<?php
+session_name("MYSESS");
+session_set_cookie_params(['lifetime'=>3600,'path'=>'/','httponly'=>true]);
+session_start();
+$_SESSION['logged_in'] = true;
+session_regenerate_id(true);
+?>
