@@ -1,0 +1,5 @@
+<?php
+// name, value, expire, path, domain, secure, httponly
+setcookie("user", "AdminUser", time()+3600, "/", "", false, true);
+echo "Cookie 'user' has been set with additional parameters.";
+?>
